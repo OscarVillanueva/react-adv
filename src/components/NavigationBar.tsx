@@ -7,18 +7,18 @@ export const NavigationBar = ({  }) => {
       <img src = { logo } alt = "react logo" />
       <ul>
         <li>
-          <NavLink to="/home" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
-            Home
+          <NavLink to="/lazy1" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Lazy 1
           </NavLink>
         </li>
         <li>
-          <NavLink to="/about" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
-            About
+          <NavLink to="/lazy2" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Lazy 2
           </NavLink>
         </li>
         <li>
-          <NavLink to="/users" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
-            Users
+          <NavLink to="/lazy3" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Lazy 3
           </NavLink>
         </li>
       </ul>
