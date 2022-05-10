@@ -10,6 +10,9 @@ interface Route {
   name: string
 }
 
+// Rename chunks in webpack 
+// agregar un comment antes de la ruta 
+// /* webpackChunkName: Lazy1 */
 const Lazy1 = lazy(() => import('../lazyload/pages/LazyPage1'))
 const Lazy2 = lazy(() => import('../lazyload/pages/LazyPage2'))
 const Lazy3 = lazy(() => import('../lazyload/pages/LazyPage3'))
