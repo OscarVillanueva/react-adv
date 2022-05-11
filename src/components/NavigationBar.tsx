@@ -8,7 +8,7 @@ export const NavigationBar = ({  }) => {
       <ul>
         <li>
           <NavLink to="/home" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
-            Home
+            Shopping Page
           </NavLink>
         </li>
         <li>

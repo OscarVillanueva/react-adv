@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { ShoppingPage } from '../component-patters/pages/ShoppingPage'
 import { NavigationBar } from '../components/NavigationBar'
 
 export const Navigation = () => {
@@ -18,7 +19,7 @@ export const Navigation = () => {
           />
           <Route
             path='/home'
-            element = { <h1>Home page</h1> }
+            element = { <ShoppingPage /> }
           />
 
           <Route
