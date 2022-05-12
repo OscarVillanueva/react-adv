@@ -17,6 +17,7 @@
 
 .productDescription {
     margin: 10px;
+    text-transform: uppercase;
 }
 
 .buttonsContainer {

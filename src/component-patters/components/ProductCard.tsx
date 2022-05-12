@@ -1,8 +1,8 @@
 // Dependencies
-import { createContext } from 'react'
+import { createContext, CSSProperties, ReactElement } from 'react'
 
 // Interfaces
-import { ProductContextProps, ProductCardProps } from '../interfaces'
+import { Product, ProductContextProps } from '../interfaces'
 
 // Hooks
 import { useProduct } from '../hooks/useProduct'
@@ -13,23 +13,32 @@ import styles from '../styles/styles.module.css'
 export const ProductContext = createContext({} as ProductContextProps)
 const { Provider } = ProductContext
 
-export const ProductCard = ({ product, children }: ProductCardProps) => {
+export interface ProductCardProps {
+  product: Product,
+  className ?: string
+  sx ?: CSSProperties
+  children ?: ReactElement | ReactElement[]
+}
+
+
+export const ProductCard = ({ product, className, sx, children }: ProductCardProps) => {
 
   const { counter, increaseBy } = useProduct()
 
   return (
-    <div className = { styles.productCard }>
-
-      <Provider
-        value = {{
-          counter,
-          product,
-          increaseBy
-        }}
+    <Provider
+      value = {{
+        counter,
+        product,
+        increaseBy
+      }}
+    >
+      <div 
+        className = { `${styles.productCard} ${className}`}
+        style = { sx }
       >
         { children }
-      </Provider>
-
-    </div>
+      </div>
+    </Provider>
   )
 }
