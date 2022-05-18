@@ -1,5 +1,5 @@
 // Dependencies
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // Types
 import { onChangeArgs, Product } from '../interfaces'
@@ -20,8 +20,6 @@ export const useProduct = (props: UseProductProps) : ToolBox => {
   const { product, value, onChange } = props
   const [counter, setCounter] = useState(value || 0)
 
-  const isControlled = useRef( !!onChange )
-
   useEffect(() => {
     
     setCounter(value || 0)
@@ -34,10 +32,6 @@ export const useProduct = (props: UseProductProps) : ToolBox => {
    * @param {number} value - number - the value to increase the counter by
    */
   const increaseBy = (value: number) : void => {
-
-    if (isControlled.current) {
-      return onChange!({ count: value, product })
-    }
 
     const newValue = Math.max(counter + value, 0)
 

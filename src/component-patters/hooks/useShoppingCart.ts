@@ -18,19 +18,15 @@ export const useShoppingCart = () : ToolBox => {
 
     setShoppingCart( prev => {
 
-      const productInCart: ProductInCart = prev[product.id] || { ...product, count: 0 }
-      productInCart.count = Math.max( productInCart.count + count, 0)
+      if (count === 0) {
+        const { [product.id]: toDelet, ...rest  } = prev
+        return rest
+      }
 
-      // Agregamos el producto al carrito
-      if (productInCart.count > 0) 
-        return {
-          ...prev, 
-          [product.id]: productInCart
-        }
-
-      // Borramos el producto
-      const { [product.id]: toDelete, ...rest } = prev
-      return rest
+      return {
+        ...prev,
+        [product.id]: { ...product, count }
+      }
 
     })
   }
