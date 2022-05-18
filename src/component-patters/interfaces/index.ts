@@ -4,7 +4,7 @@ import { ProductTitleProps } from "../components/ProductTitle"
 import { ProductImageProps } from "../components/ProductImage"
 import { ProductCardButtonsProps } from "../components/ProductButtons"
 
-export type Product = {
+export interface Product {
   id: string,
   title: string,
   image ?: string
@@ -14,6 +14,15 @@ export interface ProductContextProps {
   counter: number,
   product: Product,
   increaseBy: (value: number) => void
+}
+
+export interface ProductInCart extends Product {
+  count: number
+}
+
+export interface onChangeArgs {
+  product: Product,
+  count: number
 }
 
 export interface ProductCardHOCProps {

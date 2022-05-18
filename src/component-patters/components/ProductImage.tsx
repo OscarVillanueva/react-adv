@@ -21,7 +21,7 @@ export const ProductImage = ({ image, className, sx }: ProductImageProps) => {
   useEffect(() => {
     
     if(image) setImageToShow(image)
-    else setImageToShow(product.image || noImage)
+    else setImageToShow(product ? product.image : noImage)
 
   }, [image])
 

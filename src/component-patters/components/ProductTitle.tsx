@@ -18,7 +18,7 @@ export const ProductTitle = ({ title, className, sx}: ProductTitleProps) => {
   useEffect(() => {
     
     if (title) setTitle(title)
-    else setTitle( product.title )
+    else setTitle( product ? product.title : '' )
 
   }, [title])
 
