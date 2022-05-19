@@ -29,3 +29,9 @@
   right: 10px;
   top: 0px;
 }
+
+.disabled {
+  border-color: gray !important;
+  border-left: 1px solid white!important;
+  color: gray !important;
+}

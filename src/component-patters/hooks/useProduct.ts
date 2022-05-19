@@ -2,47 +2,60 @@
 import { useEffect, useState } from 'react'
 
 // Types
-import { onChangeArgs, Product } from '../interfaces'
+import { InitialValues, onChangeArgs, Product } from '../interfaces'
 
 type ToolBox = {
   counter: number,
+  maxCount ?: number,
+  isMaxCountReached: boolean,
+  reset: () => void,
   increaseBy: (value: number) => void
 }
 
 type UseProductProps = {
   product: Product,
   value ?: number,
-  onChange ?: (args: onChangeArgs) => void
+  initialValues?: InitialValues
+  onChange ?: (args: onChangeArgs) => void,
 }
 
-export const useProduct = (props: UseProductProps) : ToolBox => {
+export const useProduct = ({ 
+  product, value = 0, initialValues, onChange 
+}: UseProductProps) : ToolBox => {
   
-  const { product, value, onChange } = props
-  const [counter, setCounter] = useState(value || 0)
+  const [counter, setCounter] = useState<number>(0)
+  const [renders, setRenders] = useState<number>(0)
+
+  // ref no re renderiza cuando cambia de valor
 
   useEffect(() => {
-    
-    setCounter(value || 0)
+
+    if (renders === 0)  setCounter( initialValues?.count || value )
+    else if(renders > 1) setCounter(value)
+
+    if (renders <= 1) setRenders( prev => prev + 1)
 
   }, [value])
 
-  /**
-   * It takes a number as an argument, and if the number is greater than 0, it adds it to the counter,
-   * and if it's less than 0, it subtracts it from the counter
-   * @param {number} value - number - the value to increase the counter by
-   */
   const increaseBy = (value: number) : void => {
-
+    
     const newValue = Math.max(counter + value, 0)
+
+    if (initialValues?.maxCount && newValue > initialValues.maxCount ) return 
 
     setCounter( newValue)
 
     onChange && onChange({ count: newValue, product })
   }
 
+  const reset = () : void => setCounter(initialValues?.count || 0)
+
   return {
-    counter, 
-    increaseBy
+    counter,
+    maxCount: initialValues?.maxCount,
+    isMaxCountReached: !!initialValues?.maxCount && initialValues.maxCount === counter,
+    increaseBy,
+    reset
   }
   
 }

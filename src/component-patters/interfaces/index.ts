@@ -1,5 +1,5 @@
 // Types
-import { ProductCardProps } from "../components/ProductCard"
+import { ProductCardProps, ProductCard } from '../components/ProductCard';
 import { ProductTitleProps } from "../components/ProductTitle"
 import { ProductImageProps } from "../components/ProductImage"
 import { ProductCardButtonsProps } from "../components/ProductButtons"
@@ -13,6 +13,7 @@ export interface Product {
 export interface ProductContextProps {
   counter: number,
   product: Product,
+  maxCount ?: number,
   increaseBy: (value: number) => void
 }
 
@@ -23,6 +24,20 @@ export interface ProductInCart extends Product {
 export interface onChangeArgs {
   product: Product,
   count: number
+}
+
+export interface InitialValues {
+  count ?: number,
+  maxCount ?: number
+}
+
+export interface ProductCardHandlers {
+  count: number,
+  isMaxCountReached: boolean,
+  maxCount ?: number,
+  product: Product,
+  increaseBy: (value: number) => void,
+  reset: () => void
 }
 
 export interface ProductCardHOCProps {
