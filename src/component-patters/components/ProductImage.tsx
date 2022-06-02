@@ -20,16 +20,13 @@ export const ProductImage = ({ image, className, sx }: ProductImageProps) => {
 
   useEffect(() => {
     
-    if(image) setImageToShow(image)
-    else setImageToShow((product && product.image) ? product.image : noImage)
+    if (!image) {
+      if (product && product.image) setImageToShow( product.image  )
+      else setImageToShow( noImage )
+    } 
+    else setImageToShow( image )
 
-  }, [image])
-
-  useEffect(() => {
-    
-    if (product && product.image && !image) setImageToShow( product.image  )
-
-  }, [product])
+  }, [product, image])
 
   return (
     <img 
