@@ -4,7 +4,7 @@ export const products: Product[] = [
   {
     id: '1',
     title: 'Coffee Mug - obscuro',
-    image: './coffee-mug.png'
+    image: './coffee-mug2.png'
   },
   {
     id: '2',

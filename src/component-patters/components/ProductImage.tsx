@@ -16,12 +16,12 @@ export interface ProductImageProps {
 export const ProductImage = ({ image, className, sx }: ProductImageProps) => {
 
   const { product } = useContext( ProductContext )
-  const [imgToShow, setImageToShow] = useState<string | undefined>()
+  const [imgToShow, setImageToShow] = useState<string>()
 
   useEffect(() => {
     
     if(image) setImageToShow(image)
-    else setImageToShow(product ? product.image : noImage)
+    else setImageToShow((product && product.image) ? product.image : noImage)
 
   }, [image])
 
