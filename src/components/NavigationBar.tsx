@@ -7,8 +7,8 @@ export const NavigationBar = ({  }) => {
       <img src = { logo } alt = "react logo" />
       <ul>
         <li>
-          <NavLink to="/home" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
-            Home
+          <NavLink to="/register" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Register
           </NavLink>
         </li>
         <li>
