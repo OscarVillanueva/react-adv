@@ -1,6 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
+// Components
 import { NavigationBar } from '../components/NavigationBar'
-import { RegisterPage } from '../forms/pages/RegisterPage'
+import { 
+  FormikBasicPage, RegisterPage, 
+  FormikYupBasicPage, FormikComponentsPage, FormikAbstractionPage 
+} from '../forms/pages';
 
 export const Navigation = () => {
   return (
@@ -10,16 +15,24 @@ export const Navigation = () => {
 
         <Routes>
           <Route
-            path='/about'
-            element = { <h1>About page</h1> }
+            path='/yup'
+            element = { <FormikYupBasicPage /> }
           />
           <Route
-            path='/users'
-            element = { <h1>Users page</h1> }
+            path='/formik'
+            element = { <FormikBasicPage /> }
           />
           <Route
             path='/home'
             element = { <RegisterPage /> }
+          />
+          <Route
+            path='/component'
+            element = { <FormikComponentsPage /> }
+          />
+          <Route
+            path='/abstract'
+            element = { <FormikAbstractionPage /> }
           />
 
           <Route

@@ -12,13 +12,23 @@ export const NavigationBar = ({  }) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/about" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
-            About
+          <NavLink to="/formik" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Formik
           </NavLink>
         </li>
         <li>
-          <NavLink to="/users" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
-            Users
+          <NavLink to="/yup" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Yup
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/component" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Components
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/abstract" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Abstraction
           </NavLink>
         </li>
       </ul>
