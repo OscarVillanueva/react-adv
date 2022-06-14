@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NavigationBar } from '../components/NavigationBar'
 import { 
   FormikBasicPage, RegisterPage, 
-  FormikYupBasicPage, FormikComponentsPage, FormikAbstractionPage 
+  FormikYupBasicPage, FormikComponentsPage, FormikAbstractionPage, RegisterFormikPage, DynamicFormPage 
 } from '../forms/pages';
 
 export const Navigation = () => {
@@ -33,6 +33,15 @@ export const Navigation = () => {
           <Route
             path='/abstract'
             element = { <FormikAbstractionPage /> }
+          />
+          <Route
+            path='/page'
+            element = { <RegisterFormikPage /> }
+          />
+
+          <Route
+            path='/dynamic'
+            element = { <DynamicFormPage /> }
           />
 
           <Route

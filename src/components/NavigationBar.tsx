@@ -31,6 +31,18 @@ export const NavigationBar = ({  }) => {
             Abstraction
           </NavLink>
         </li>
+
+        <li>
+          <NavLink to="/page" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+            Register Formik Page
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/dynamic" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
+           Dynamic
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )

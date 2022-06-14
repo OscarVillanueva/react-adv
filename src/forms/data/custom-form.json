@@ -1,0 +1,74 @@
+[
+  {
+    "type": "input",
+    "name": "name",
+    "placeholder": "Tu nombre",
+    "label": "Nombre",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "min",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "name": "lastName",
+    "placeholder": "Tu apellido",
+    "label": "Apellido",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "email@email.com",
+    "label": "Correo electrónico",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "email"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Juego favorito",
+    "value": "",
+    "options": [
+      {
+        "id": 0,
+        "label": "Selecciona un videojuego"
+      }, 
+      {
+        "id": 1,
+        "label": "FIFA 22"
+      }, 
+      {
+        "id": 2,
+        "label": "Project: Snow blind"
+      },
+      {
+        "id": 3,
+        "label": "Mario Strikers"
+      }
+    ],
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
+  }
+]
